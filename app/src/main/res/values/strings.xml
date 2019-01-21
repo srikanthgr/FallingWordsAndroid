@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FallingWordsAndroid</string>
+    <string name="validateButton">That\'s Right !</string>
+    <string name="zero">0</string>
+    <string name="correct">Correct !</string>
+    <string name="incorrect">Incorrect !</string>
+    <string name="challengeWord">TextView</string>
+    <string name="translatedWord">TextView</string>
 </resources>
