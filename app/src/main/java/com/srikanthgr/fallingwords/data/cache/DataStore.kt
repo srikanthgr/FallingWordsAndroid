@@ -8,7 +8,7 @@ import org.json.JSONObject
 import java.util.*
 
 /**
- * Cache layer mechanism to return the data from the assets folder.
+ * Cache layer mechanism to return the data from the assets folder in the cache layer.
  */
 class DataStore {
 

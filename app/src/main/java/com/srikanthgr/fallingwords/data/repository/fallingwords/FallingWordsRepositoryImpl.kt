@@ -7,7 +7,7 @@ import org.json.JSONArray
 
 /**
  * Repository implementation of the falling words.
- * @param fallingWordsApplication application context which will be used by the cache layer to retrieve the data.
+ * @param fallingWordsApplication  context which will be used by the cache layer to retrieve the data.
  */
 class FallingWordsRepositoryImpl(private var fallingWordsApplication: FallingWordsApplication) :
     FallingWordsRepository {
