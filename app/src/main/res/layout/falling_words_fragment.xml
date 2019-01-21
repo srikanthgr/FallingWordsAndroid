@@ -30,17 +30,17 @@
                 android:layout_marginEnd="@dimen/margin_8" app:layout_constraintHorizontal_bias="1.0"
                 android:id="@+id/linearLayout">
             <TextView
-                    android:text="@string/zero"
+                    android:text="@string/zero" android:fontFamily="sans-serif-black"
                     android:layout_width="26dp" android:layout_marginStart="10dp"
                     android:layout_height="wrap_content" android:id="@+id/correctWord"/>
             <TextView
-                    android:text="@string/zero"
+                    android:text="@string/zero" android:fontFamily="sans-serif-black"
                     android:layout_marginStart="10dp"
                     android:layout_width="@dimen/margin_30"
                     android:layout_height="@dimen/margin_36" android:id="@+id/inCorrectWord"/>
         </LinearLayout>
         <TextView
-                android:text="@string/correct"
+                android:text="@string/correct" android:fontFamily="sans-serif-black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/correctWordLabel"
@@ -48,7 +48,7 @@
                 tools:ignore="MissingConstraints" android:layout_marginTop="@dimen/margin_56"
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="@dimen/margin_8"/>
         <TextView
-                android:text="@string/incorrect"
+                android:text="@string/incorrect" android:fontFamily="sans-serif-black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/incorrectWordLabel" app:layout_constraintEnd_toStartOf="@+id/linearLayout"
@@ -57,7 +57,8 @@
         <TextView
                 android:text="@string/challengeWord"
                 android:gravity="center"
-                android:layout_width="435dp"
+                android:layout_width="435dp" android:textStyle="bold" android:fontFamily="sans-serif-condensed-medium"
+                android:textSize="25sp"
                 android:layout_height="wrap_content"
                 android:id="@+id/challengeWord" android:layout_marginTop="@dimen/margin_36"
                 app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="@dimen/margin_8"
@@ -65,7 +66,7 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="@dimen/margin_8"
                 app:layout_constraintBottom_toTopOf="@+id/validateWord" app:layout_constraintVertical_bias="0.0"/>
         <TextView
-                android:text="@string/translatedWord"
+                android:text="@string/translatedWord" android:fontFamily="sans-serif-condensed" android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/translatedWord" android:layout_marginTop="@dimen/margin_8"
