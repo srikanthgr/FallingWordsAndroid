@@ -4,31 +4,68 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+androidExtensions {
+    experimental = true
+}
+
 android {
-    compileSdkVersion 28
-    defaultConfig {
-        applicationId "com.srikanthgr.fallingwords"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    dataBinding {
+        enabled = true
     }
+
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
+
+    aaptOptions {
+        noCompress "mp4"
+    }
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility = rootProject.ext.sourceCompatibilityVersion
+        targetCompatibility = rootProject.ext.targetCompatibilityVersion
+    }
+
+    defaultConfig {
+        applicationId rootProject.ext.applicationIdBase
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.androidVersionCode
+        versionName rootProject.ext.androidVersionName
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
+        testApplicationId rootProject.ext.testApplicationId
+    }
+
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        androidTest {
+            java.srcDirs += "src/sharedTest/java"
+            kotlin.srcDirs += "src/sharedTest/java"
+        }
+        test {
+            java.srcDirs += "src/sharedTest/java"
+            kotlin.srcDirs += "src/sharedTest/java"
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.core:core-ktx:1.1.0-alpha03'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    presentationDependencies.each { dep -> implementation dep.value }
+    presentationDebugDependencies.each { dep -> debugImplementation dep.value }
+    presentationKaptDependencies.each { dep -> kapt dep.value }
+    presentationAndroidTestDependencies.each { dep -> androidTestImplementation dep.value }
 }

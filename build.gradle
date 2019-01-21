@@ -1,11 +1,106 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+ext {
+    minSdkVersion = 23
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = "28.0.3"
+    androidVersionCode = 1
+    androidVersionName = "1.0"
+    sourceCompatibilityVersion = JavaVersion.VERSION_1_7
+    targetCompatibilityVersion = JavaVersion.VERSION_1_7
+    applicationIdBase = "com.srikanthgr.fallingwords"
+    testApplicationId = "${applicationIdBase}.test"
+    testInstrumentationRunner = "com.srikanthgr.fallingwords.FakeApplicationTestRunner"
+    jvmTargetVersion = "1.8"
+
+    // Versions
+
+    kotlinVersion = "1.3.11"
+    coreVersion = "1.0.1"
+    appcompatVersion = "1.0.0"
+
+    androidPluginVersion = "3.3.0-beta04"
+    navigationVersion = "1.0.0-alpha08"
+    fragmentVersion = "1.1.0-alpha03"
+    fragmentKtxVersion = "1.1.0-alpha03"
+
+    javaxInjectVersion = "1"
+
+    daggerVersion = "2.19"
+    constraintLayoutVersion = "2.0.0-alpha2"
+    lifecycleVersion = "1.1.0"
+    androidAnnotationsVersion = "1.0.0"
+    timberVersion = "4.7.1"
+
+    // Testing
+
+    mockitoVersion = "2.23.4"
+    robolectricVersion = "4.1"
+    junitVersion = "1.1.0"
+    testCoreVersion = "1.1.0"
+    testRunnerVersion = "1.1.1"
+    testRulesVersion = "1.1.1"
+    testTruthVersion = "1.1.0"
+    espressoVersion = "3.1.1"
+    fragmentTestingVersion = "1.1.0-alpha03"
+    archCoreTestingVersion = "1.1.1"
+
+    presentationDependencies = [
+            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+            appcompat          : "androidx.appcompat:appcompat:$appcompatVersion",
+            constraintLayout   : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            dagger             : "com.google.dagger:dagger:$daggerVersion",
+            daggerAndroid      : "com.google.dagger:dagger-android:$daggerVersion",
+            daggerSupport      : "com.google.dagger:dagger-android-support:$daggerVersion",
+            lifecycleExtensions: "android.arch.lifecycle:extensions:$lifecycleVersion",
+            lifecycleViewmodel : "android.arch.lifecycle:viewmodel:$lifecycleVersion",
+            androidAnnotations : "androidx.annotation:annotation:$androidAnnotationsVersion",
+            coreKtx            : "androidx.core:core-ktx:$coreVersion",
+            timber             : "com.jakewharton.timber:timber:$timberVersion",
+            fragment           : "androidx.fragment:fragment:$fragmentVersion",
+            fragmentKtx        : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
+            coroutinesCore     : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0',
+            coroutinesAndroid  : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0",
+    ]
+
+    presentationDebugDependencies = [
+            testCore       : "androidx.test:core:$testCoreVersion",
+            fragmentTesting: "androidx.fragment:fragment-testing:$fragmentTestingVersion"
+    ]
+
+
+    presentationKaptDependencies = [
+            daggerProcessor       : "com.google.dagger:dagger-compiler:$daggerVersion",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$daggerVersion"
+    ]
+
+
+    presentationTestDependencies = [
+            robolectric           : "org.robolectric:robolectric:$robolectricVersion",
+            mockito               : "org.mockito:mockito-core:$mockitoVersion",
+            junit                 : "androidx.test.ext:junit:$junitVersion",
+            espresso              : "androidx.test.espresso:espresso-core:$espressoVersion",
+            espressoContrib       : "androidx.test.espresso:espresso-contrib:$espressoVersion",
+            espressoIdlingResource: "androidx.test.espresso:espresso-idling-resource:$espressoVersion",
+            powerMock : "org.powermock:powermock-api-mockito:1.6.6"
+    ]
+
+    presentationAndroidTestDependencies = [
+            mockitoAndroid        : "org.mockito:mockito-android:$mockitoVersion",
+            testTruth             : "androidx.test.ext:truth:$testTruthVersion",
+            testRunner            : "androidx.test:runner:$testRunnerVersion",
+            testRules             : "androidx.test:rules:$testRulesVersion",
+            espressoIdlingResource: "androidx.test.espresso:espresso-idling-resource:$espressoVersion",
+    ]
+}
+
 buildscript {
     ext.kotlin_version = '1.3.11'
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
@@ -19,7 +114,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
     }
 }
 
